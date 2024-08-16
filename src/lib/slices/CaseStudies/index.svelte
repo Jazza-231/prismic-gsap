@@ -10,9 +10,7 @@
   import clsx from "clsx";
 
   export let slice: Content.CaseStudiesSlice;
-  console.log("🚀 ~ slice:", slice);
   export let caseStudies: Content.CaseStudyDocument[];
-  console.log("🚀 ~ caseStudies:", caseStudies);
 </script>
 
 <Bounded
