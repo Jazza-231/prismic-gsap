@@ -1,5 +1,3 @@
-<!-- src/lib/components/Bounded.svelte -->
-
 <script>
   import clsx from "clsx";
 

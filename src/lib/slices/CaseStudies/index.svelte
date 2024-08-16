@@ -30,37 +30,41 @@
   </div>
 
   <div class="mt-20 grid gap-60">
-    {#each caseStudies as caseStudy, index}
-      <div
-        class="group relative grid gap-4 opacity-85 transition-opacity duration-300 hover:cursor-pointer hover:opacity-100 md:grid-cols-2 md:gap-8 lg:grid-cols-3"
-      >
-        <div class="col-span-1 flex flex-col justify-center gap-4">
-          <h3 class="text-4xl">
-            <PrismicText field={caseStudy.data.company} />
-          </h3>
-          <div class="max-w-md">
-            <PrismicRichText field={caseStudy.data.description} />
+    {#if caseStudies}
+      {#each caseStudies as caseStudy, index}
+        <div
+          class="group relative grid gap-4 opacity-85 transition-opacity duration-300 hover:cursor-pointer hover:opacity-100 md:grid-cols-2 md:gap-8 lg:grid-cols-3"
+        >
+          <div class="col-span-1 flex flex-col justify-center gap-4">
+            <h3 class="text-4xl">
+              <PrismicText field={caseStudy.data.company} />
+            </h3>
+            <div class="max-w-md">
+              <PrismicRichText field={caseStudy.data.description} />
+            </div>
+            <PrismicLink
+              document={caseStudy}
+              class="z-10 after:absolute after:inset-0 hover:underline"
+            >
+              Read <PrismicText field={caseStudy.data.company}></PrismicText>
+              Case Study
+            </PrismicLink>
           </div>
-          <PrismicLink
-            document={caseStudy}
-            class="z-10 after:absolute after:inset-0 hover:underline"
-          >
-            Read <PrismicText field={caseStudy.data.company}></PrismicText>
-            Case Study
-          </PrismicLink>
-        </div>
 
-        <div class={clsx("relative lg:col-span-2", index % 2 && "md:-order-1")}>
-          <div class="image-glow -bottom-8 -left-4 bg-orange-500"></div>
-          <div class="image-glow -right-4 -top-8 bg-violet-500"></div>
-          <PrismicImage
-            field={caseStudy.data.image}
-            sizes="(max-width: 768px 100vw, 50vw)"
-            class="z-20 scale-[0.98] rounded-xl transition-transform duration-300 group-hover:scale-100"
-          ></PrismicImage>
+          <div
+            class={clsx("relative lg:col-span-2", index % 2 && "md:-order-1")}
+          >
+            <div class="image-glow -bottom-8 -left-4 bg-orange-500"></div>
+            <div class="image-glow -right-4 -top-8 bg-violet-500"></div>
+            <PrismicImage
+              field={caseStudy.data.image}
+              sizes="(max-width: 768px 100vw, 50vw)"
+              class="z-20 scale-[0.98] rounded-xl transition-transform duration-300 group-hover:scale-100"
+            ></PrismicImage>
+          </div>
         </div>
-      </div>
-    {/each}
+      {/each}
+    {/if}
   </div>
 </Bounded>
 
